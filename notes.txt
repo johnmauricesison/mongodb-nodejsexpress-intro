@@ -1,3 +1,7 @@
+npm init
+node index.js
+npm install express
+
 
 use (name of the Database - Inventory)
 show dbs
