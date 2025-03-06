@@ -1,0 +1,55 @@
+
+use (name of the Database - Inventory)
+show dbs
+db.createCollection('products')
+
+
+db.products.insertOne.({
+    "productname": "Monitor",
+    "category": "IT Equipment" 
+})
+
+db.products.insertMany([
+    {
+        "productname": "Monitor",
+        "category": "IT Equipment" 
+    },
+    {
+        "productname": "Keyboard",
+        "category": "IT Equipment" 
+    }
+])
+
+db.products.find()
+db.products.findOne({_id: ObjectId("number)})
+db.products.find({ category: "Furniture" })
+
+db.products.find({},{ name: 1, category: 1 })
+
+db.products.updateOne({_id: ObjectId("number)}, { $set: { name: "Computer Table Updated" }})
+db.products.updatedMany({category: "Furniture"}, { $set: { category: "Furniture Updated" }})
+
+db.Products.updateOne({_id: ObjectId("67c99719a6494e207291924b")}, {$set: {quantity: 10, category: "Furniture", name: "Chair"}})
+
+db.Products.deleteOne({_id: ObjectId('67c99719a6494e207291924b')})
+
+
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+
+db.products.find({ quantity: { $eq: 10 }})
+db.products.find({ quantity: { $in: [5, 10, 15, 20, 25] } })
+
+
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+
+
+db.products.find({ $and: [{ quantity: { $gt: 5}}, { category: "Furniture" }] })
